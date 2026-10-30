@@ -91,7 +91,25 @@ const WarehousesIcon = ({ className = "w-4 h-4", strokeWidth = 1.75 }: { classNa
   </svg>
 );
 
+const DashboardIcon = ({ className = "w-4 h-4", strokeWidth = 1.75 }: { className?: string; strokeWidth?: number }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="7" height="9" x="3" y="3" rx="1" />
+    <rect width="7" height="5" x="14" y="3" rx="1" />
+    <rect width="7" height="9" x="14" y="12" rx="1" />
+    <rect width="7" height="5" x="3" y="16" rx="1" />
+  </svg>
+);
+
 const SIDEBAR_ITEMS: SidebarItem[] = [
+  { name: 'Dashboard', path: '/dashboard', icon: DashboardIcon },
   { name: 'Customers', path: '/customers', icon: CustomersIcon },
   { name: 'Billers', path: '/billers', icon: BillersIcon },
   { name: 'Suppliers', path: '/suppliers', icon: SuppliersIcon },
@@ -125,13 +143,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile })
       >
         {/* Brand Header */}
         <Link
-          to="/customers"
+          to="/dashboard"
           onClick={onCloseMobile}
           className="flex items-center gap-3 px-3 pb-5 mb-4 border-b border-[#E8EAF0] hover:opacity-90 transition-opacity group flex-shrink-0"
         >
           {!logoError ? (
             <img
-              src="/logo.jpeg"
+              src="/lancersloomlogo.jpg"
               alt="LancersLoom Logo"
               onError={() => setLogoError(true)}
               className="w-10 h-10 object-contain rounded-xl p-1 bg-white border border-[#E8EAF0]"

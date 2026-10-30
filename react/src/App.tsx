@@ -6,6 +6,7 @@ import Biller from './pages/biller/biller';
 import Supplier from './pages/supplier/supplier';
 import Store from './pages/store/store';
 import Warehouse from './pages/warehouse/warehouse';
+import Dashboard from './pages/dashboard/dashboard';
 import { Settings, Menu } from 'lucide-react';
 
 export default function App() {
@@ -45,7 +46,8 @@ export default function App() {
           </div>
 
           <Routes>
-            <Route path="/" element={<Navigate to="/customers" replace />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/customers" element={<Customer />} />
             <Route path="/customer" element={<Navigate to="/customers" replace />} />
             <Route path="/billers" element={<Biller />} />
@@ -56,7 +58,7 @@ export default function App() {
             <Route path="/store" element={<Navigate to="/stores" replace />} />
             <Route path="/warehouses" element={<Warehouse />} />
             <Route path="/warehouse" element={<Navigate to="/warehouses" replace />} />
-            <Route path="*" element={<Navigate to="/customers" replace />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </main>
 
